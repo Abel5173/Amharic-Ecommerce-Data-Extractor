@@ -161,9 +161,6 @@ def process_csv(input_csv, output_csv):
     logger.info("Detecting language")
     df['Language'] = df['Message Text'].progress_apply(detect_language)
     
-    # logger.info("Extracting emojis")
-    # df['Emojis'] = df['Message Text'].progress_apply(extract_emojis)
-    
     logger.info("Preprocessing text")
     df['Preprocessed Text'] = df['Message Text'].progress_apply(
         lambda x: preprocess_mixed_text(x, am_stop_words)
